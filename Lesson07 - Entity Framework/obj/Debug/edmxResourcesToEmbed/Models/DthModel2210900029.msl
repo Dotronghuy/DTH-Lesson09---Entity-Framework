@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ĐTH_K22CNT1Lesson07ModelStoreContainer" CdmEntityContainer="ĐTH_K22CNT1Lesson07Entities">
+    <EntitySetMapping Name="dthKhoa">
+      <EntityTypeMapping TypeName="ĐTH_K22CNT1Lesson07Model.dthKhoa">
+        <MappingFragment StoreEntitySet="dthKhoa">
+          <ScalarProperty Name="ĐthID" ColumnName="ĐthID" />
+          <ScalarProperty Name="ĐthTenKh" ColumnName="ĐthTenKh" />
+          <ScalarProperty Name="ĐthTrangthai" ColumnName="ĐthTrangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dthSV">
+      <EntityTypeMapping TypeName="ĐTH_K22CNT1Lesson07Model.dthSV">
+        <MappingFragment StoreEntitySet="dthSV">
+          <ScalarProperty Name="ĐthMaSV" ColumnName="ĐthMaSV" />
+          <ScalarProperty Name="ĐthHoSV" ColumnName="ĐthHoSV" />
+          <ScalarProperty Name="ĐthTenSV" ColumnName="ĐthTenSV" />
+          <ScalarProperty Name="ĐthNS" ColumnName="ĐthNS" />
+          <ScalarProperty Name="ĐthPhai" ColumnName="ĐthPhai" />
+          <ScalarProperty Name="ĐthPhone" ColumnName="ĐthPhone" />
+          <ScalarProperty Name="ĐthEmail" ColumnName="ĐthEmail" />
+          <ScalarProperty Name="ĐthID" ColumnName="ĐthID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

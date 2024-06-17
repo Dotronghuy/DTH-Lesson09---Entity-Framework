@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Lesson07___Entity_Framework.Models.dthKhoa>
+
+@{
+    ViewBag.Title = "DTHIndex";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("DTH : Create New", "DTHCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ĐthTenKh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ĐthTrangthai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ĐthTenKh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ĐthTrangthai)
+        </td>
+        <td>
+            @Html.ActionLink("DTH:Edit", "DTHEdit", new { id=item.ĐthID.Trim() }) |
+            @Html.ActionLink("DTH:Details", "DTHDetails", new { id=item.ĐthID.Trim() }) |
+            @Html.ActionLink("DTH:Delete", "DTHDelete", new { id=item.ĐthID.Trim() })
+        </td>
+    </tr>
+}
+
+</table>

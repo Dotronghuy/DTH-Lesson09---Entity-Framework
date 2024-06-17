@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ĐTH_K22CNT1Lesson07Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dthKhoa">
+    <Key>
+      <PropertyRef Name="ĐthID" />
+    </Key>
+    <Property Name="ĐthID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ĐthTenKh" Type="nchar" MaxLength="10" />
+    <Property Name="ĐthTrangthai" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="dthSV">
+    <Key>
+      <PropertyRef Name="ĐthMaSV" />
+    </Key>
+    <Property Name="ĐthMaSV" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ĐthHoSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="ĐthTenSV" Type="nvarchar" MaxLength="50" />
+    <Property Name="ĐthNS" Type="date" />
+    <Property Name="ĐthPhai" Type="bit" />
+    <Property Name="ĐthPhone" Type="nchar" MaxLength="10" />
+    <Property Name="ĐthEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="ĐthID" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_dthSV_dthKhoa">
+    <End Role="dthKhoa" Type="Self.dthKhoa" Multiplicity="0..1" />
+    <End Role="dthSV" Type="Self.dthSV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dthKhoa">
+        <PropertyRef Name="ĐthID" />
+      </Principal>
+      <Dependent Role="dthSV">
+        <PropertyRef Name="ĐthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ĐTH_K22CNT1Lesson07ModelStoreContainer">
+    <EntitySet Name="dthKhoa" EntityType="Self.dthKhoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dthSV" EntityType="Self.dthSV" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dthSV_dthKhoa" Association="Self.FK_dthSV_dthKhoa">
+      <End Role="dthKhoa" EntitySet="dthKhoa" />
+      <End Role="dthSV" EntitySet="dthSV" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

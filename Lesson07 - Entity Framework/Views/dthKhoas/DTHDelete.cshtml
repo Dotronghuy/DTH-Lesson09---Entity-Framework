@@ -1,0 +1,40 @@
+﻿@model Lesson07___Entity_Framework.Models.dthKhoa
+
+@{
+    ViewBag.Title = "DTHDelete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>dthKhoa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ĐthTenKh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ĐthTenKh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ĐthTrangthai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ĐthTrangthai)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "DTHIndex")
+        </div>
+    }
+</div>

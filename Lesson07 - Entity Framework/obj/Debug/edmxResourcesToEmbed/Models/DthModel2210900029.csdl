@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ĐTH_K22CNT1Lesson07Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="dthKhoa">
+    <Key>
+      <PropertyRef Name="ĐthID" />
+    </Key>
+    <Property Name="ĐthID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="ĐthTenKh" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ĐthTrangthai" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="dthSV" Relationship="ĐTH_K22CNT1Lesson07Model.FK_dthSV_dthKhoa" FromRole="dthKhoa" ToRole="dthSV" />
+  </EntityType>
+  <EntityType Name="dthSV">
+    <Key>
+      <PropertyRef Name="ĐthMaSV" />
+    </Key>
+    <Property Name="ĐthMaSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ĐthHoSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ĐthTenSV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ĐthNS" Type="DateTime" Precision="0" />
+    <Property Name="ĐthPhai" Type="Boolean" />
+    <Property Name="ĐthPhone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ĐthEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ĐthID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="dthKhoa" Relationship="ĐTH_K22CNT1Lesson07Model.FK_dthSV_dthKhoa" FromRole="dthSV" ToRole="dthKhoa" />
+  </EntityType>
+  <EntityContainer Name="ĐTH_K22CNT1Lesson07Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="dthKhoa" EntityType="Self.dthKhoa" />
+    <EntitySet Name="dthSV" EntityType="Self.dthSV" />
+    <AssociationSet Name="FK_dthSV_dthKhoa" Association="ĐTH_K22CNT1Lesson07Model.FK_dthSV_dthKhoa">
+      <End Role="dthKhoa" EntitySet="dthKhoa" />
+      <End Role="dthSV" EntitySet="dthSV" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_dthSV_dthKhoa">
+    <End Type="ĐTH_K22CNT1Lesson07Model.dthKhoa" Role="dthKhoa" Multiplicity="0..1" />
+    <End Type="ĐTH_K22CNT1Lesson07Model.dthSV" Role="dthSV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="dthKhoa">
+        <PropertyRef Name="ĐthID" />
+      </Principal>
+      <Dependent Role="dthSV">
+        <PropertyRef Name="ĐthID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
